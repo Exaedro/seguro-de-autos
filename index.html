@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Seguro de Autos</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="vehiculos.php">Vehiculos</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" class="hero">
+            <h1>Protege tu auto con nosotros</h1>
+            <p>Ofrecemos las mejores opciones de seguro para tu vehículo.</p>
+            <a href="#cotizacion" class="btn">Obtener Cotización</a>
+        </section>
+    </main>
+    <section class="pricing">
+        <h2>Precios de planes</h2>
+        <section id="precios">
+            <div class="plan">
+                <h3>Plan Básico</h3>
+                <p>Cobertura básica para conductores responsables.</p>
+                <p class="price">$50/mes</p>
+            </div>
+            <div class="plan">
+                <h3>Plan Premium</h3>
+                <p>Cobertura completa con beneficios adicionales.</p>
+                <p class="price">$80/mes</p>
+            </div>
+        </section>
+    </section>
+    <section class="benefits">
+        <h2>Beneficios del Seguro</h2>
+        <section id="cobertura" class="benefits">
+            <div class="texto">
+                <ul>
+                    <li>Cobertura completa contra accidentes</li>
+                    <li>Asistencia en carretera las 24 horas</li>
+                    <li>Pagos flexibles</li>
+                    <li>Seguro de auto de reemplazo</li>
+                </ul>
+            </div>
+        </section>
+    </section>
+    <main>
+        <section id="cotizacion" class="quote">
+            <h2>Obtén una Cotización</h2>
+            <p>Completa el formulario para recibir una cotización personalizada.</p>
+            <form action="procesar_cotizacion.php" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                <label for="modelo_auto">Modelo del Auto:</label>
+                <input type="text" id="modelo_auto" name="modelo_auto" required>
+                <button type="submit" class="btn2">Enviar Cotización</button>
+            </form>
+        </section>
+    </main>
+    <footer id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¡Contáctanos para obtener más información!</p>
+            <p>Teléfono: 123-456-7890</p>
+            <p>Correo Electrónico: info@segurodeautos.com</p>
+        </div>
+    </footer>
+</body>
+
+</html>
