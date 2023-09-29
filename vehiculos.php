@@ -12,9 +12,9 @@
             <div class="container">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#cobertura">Vehiculos</a></li>
-                    <li><a href="#precios">Precios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="vehiculos.php">Vehiculos</a></li>
+                    <li><a href="index.html#precios">Precios</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
                 </ul>
             </div>
         </nav>
