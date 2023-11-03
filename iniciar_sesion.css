@@ -1,0 +1,75 @@
+:root {
+    --background: hsl(224, 89%, 74%);
+    --background-darker: hsl(224, 92%, 61%);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ededed;
+}
+
+main {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: system-ui, sans-serif;
+}
+
+.formulario {
+    background-color: var(--background);
+    padding: 40px;
+    border-radius: 7px;
+}
+
+.formulario h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.formulario label {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.formulario input {
+    margin-bottom: 15px;
+    height: 25px;
+    padding: 15px 10px 15px 10px;
+    font-size: 17px;
+    outline: none;
+}
+
+.formulario input:focus {
+    border: none;
+} 
+
+.formulario button {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px 25px 15px 25px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #1bd139;
+    transition: background 0.3s ease;
+}
+
+.formulario button:hover {
+    cursor: pointer;
+    background-color: #18bf34;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

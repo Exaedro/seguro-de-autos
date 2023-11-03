@@ -1,7 +1,9 @@
 <?php
+    if(!isset($_SESSION['usuario'])) return header('Location: ../iniciar_sesion.php');
+    
     $db = mysqli_connect('localhost', 'root', '', 'auto');
     
-    $query = "SELECT v.tipo_vehiculo, v.modelo, v.marca, c.apellido FROM vehiculos v JOIN clientes c ON v.DNI_cliente = c.DNI_cliente;";
+    $query = "SELECT v.tipo_vehiculo, v.modelo, v.marca, c.apellido FROM vehiculos v JOIN clientes c ON v.DNI_cliente = c.DNI_cliente WHERE c.DNI_cliente = ". $_SESSION['usuario'] .";";
     $result = mysqli_query($db, $query);
 
     while($fila = mysqli_fetch_assoc($result)) {
@@ -10,7 +12,7 @@
         $marca = $fila['marca'];
         $cliente = $fila['apellido'];
 
-        echo "<section class='auto'>";
+        echo "<article class='auto'>";
         echo "<h3>Tipo de Vehiculo</h3>";
         echo "<p>$tipoVehiculo</p>";
         echo "<h3>Marca</h3>";
@@ -19,6 +21,6 @@
         echo "<p>$modelo</p>";
         echo "<h3>Cliente</h3>";
         echo "<p>$cliente</p>";
-        echo "</section>";
+        echo "</article>";
     }
 ?>

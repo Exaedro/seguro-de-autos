@@ -5,6 +5,10 @@
     --bg-sc-color: hsl(224, 89%, 74%);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,6 +21,8 @@ body {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 main {
@@ -154,22 +160,6 @@ nav a {
     justify-content: center;
 }
 
-form {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-}
-
 footer {
     background-color: var(--bg-sc-color);
     color: var(--bg-color);
@@ -187,4 +177,11 @@ h1 {
     margin: 1rem 2.5rem 2rem 0;
     display: inline-block;
     padding: 1rem 2rem;
+}
+
+.perfil {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 30px;
 }
