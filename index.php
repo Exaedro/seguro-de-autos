@@ -13,9 +13,14 @@
             justify-content: center;
         }
 
+        input {
+            height: 20px;
+            margin-bottom: 15px;
+        }
+
         .btn2 {
             display: block;
-            width: 425px;
+            width: 600px;
         }
     </style>
 </head>
