@@ -13,7 +13,7 @@
             justify-content: center;
         }
 
-        input {
+        input, select {
             height: 20px;
             margin-bottom: 15px;
         }
