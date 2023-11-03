@@ -186,3 +186,16 @@ h1 {
     padding-bottom: 20px;
     gap: 30px;
 }
+
+/*INFO DE PLANES*/
+.plan, #precios{
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+
+.plan:hover{
+    background-color: #3766ff;
+    color: #e0e0e0;
+    transform: scale(1.07);
+}

@@ -61,18 +61,18 @@
     </main>
     <section class="pricing">
         <h2>Precios de planes</h2>
-        <section id="precios">
-            <div class="plan">
-                <h3>Plan Básico</h3>
-                <p>Cobertura básica para conductores responsables.</p>
-                <p class="price">$50/mes</p>
-            </div>
-            <div class="plan">
-                <h3>Plan Premium</h3>
-                <p>Cobertura completa con beneficios adicionales.</p>
-                <p class="price">$80/mes</p>
-            </div>
-        </section>
+            <section id="precios">
+                <a href="plan_basic.html" class="plan">
+                    <h3>Plan Básico</h3>
+                    <p>Cobertura básica para conductores responsables.</p>
+                    <p class="price">$50/mes</p>
+                </a>
+                <a href="plan_prem.html" class="plan">
+                    <h3>Plan Premium</h3>
+                    <p>Cobertura completa con beneficios adicionales.</p>
+                    <p class="price">$80/mes</p>
+                </a>
+            </section>
     </section>
     <section class="benefits">
         <h2>Beneficios del Seguro</h2>
