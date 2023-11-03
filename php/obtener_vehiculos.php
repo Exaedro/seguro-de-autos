@@ -7,7 +7,7 @@ session_start();
     
     $db = mysqli_connect('localhost', 'root', '', 'auto');
     
-    $query = "SELECT v.tipo_vehiculo, v.modelo, v.marca, c.apellido FROM vehiculos v JOIN clientes c ON v.DNI_cliente = c.DNI_cliente WHERE c.DNI_cliente = v.DNI_cliente;";
+    $query = "SELECT v.tipo_vehiculo, v.modelo, v.marca, c.apellido FROM vehiculos v JOIN clientes c ON v.DNI_cliente = c.DNI_cliente WHERE v.DNI_cliente = ". $_SESSION['usuario'] .";";
     $result = mysqli_query($db, $query);
 
     while($fila = mysqli_fetch_assoc($result)) {
