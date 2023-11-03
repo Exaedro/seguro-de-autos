@@ -1,15 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2023 a las 00:10:50
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.0.18
+-- Tiempo de generación: 03-11-2023 a las 18:38:57
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `auto`
@@ -27,16 +33,18 @@ CREATE TABLE `clientes` (
   `apellido` varchar(30) NOT NULL,
   `telefono` int(11) NOT NULL,
   `correo_electronico` varchar(30) NOT NULL,
-  `contraseña` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `contraseña` varchar(30) NOT NULL,
+  `rol` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`DNI_cliente`, `nombre`, `apellido`, `telefono`, `correo_electronico`, `contraseña`) VALUES
-(1, 'Maximiliano ', 'Soto de la Colina', 1100999988, 'maxi@gmail.com', 'maxixd'),
-(2, 'Nahiara', 'Sassone', 1133445566, 'n@gmail.com', 'nanu797');
+INSERT INTO `clientes` (`DNI_cliente`, `nombre`, `apellido`, `telefono`, `correo_electronico`, `contraseña`, `rol`) VALUES
+(0, 'Julian', 'Grippaldi Exequiel', 1186742853, 'owomolo123@gmail.com', '29422196', 'admin'),
+(1, 'Maximiliano ', 'Soto de la Colina', 1185396024, 'maxi@gmail.com', 'maxixd', ''),
+(2, 'Nahiara', 'Sassone', 1133445566, 'n@gmail.com', 'nanu797', '');
 
 -- --------------------------------------------------------
 
@@ -52,15 +60,15 @@ CREATE TABLE `polizas` (
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
   `monto_cobertura` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `polizas`
 --
 
 INSERT INTO `polizas` (`IDpoliza`, `DNI_cliente`, `IDvehiculo`, `numero_poliza`, `fecha_inicio`, `fecha_fin`, `monto_cobertura`) VALUES
-(1, 1, 1, 121212121, '2023-09-05', '2023-09-09', '5000.00'),
-(2, 2, 2, 15151515, '2023-09-22', '2023-09-30', '6000.00');
+(1, 1, 1, 121212121, '2023-09-05', '2023-09-09', 5000.00),
+(2, 2, 2, 15151515, '2023-09-22', '2023-09-30', 6000.00);
 
 -- --------------------------------------------------------
 
@@ -74,7 +82,7 @@ CREATE TABLE `reclamos` (
   `estado` varchar(20) NOT NULL,
   `descripcion` varchar(20) NOT NULL,
   `fecha_reclamo` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reclamos`
@@ -96,15 +104,15 @@ CREATE TABLE `siniestros` (
   `fecha_suceso` date NOT NULL,
   `descripcion` varchar(20) NOT NULL,
   `monto_reclamado` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `siniestros`
 --
 
 INSERT INTO `siniestros` (`id_siniestro`, `IDpoliza`, `fecha_suceso`, `descripcion`, `monto_reclamado`) VALUES
-(1, 1, '2023-09-03', 'auto chocado ', '200.00'),
-(2, 2, '2023-09-18', 'auto chocado ', '300.00');
+(1, 1, '2023-09-03', 'auto chocado ', 200.00),
+(2, 2, '2023-09-18', 'auto chocado ', 300.00);
 
 -- --------------------------------------------------------
 
@@ -119,7 +127,7 @@ CREATE TABLE `vehiculos` (
   `modelo` varchar(20) NOT NULL,
   `marca` varchar(20) NOT NULL,
   `fecha_salida` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `vehiculos`
@@ -128,7 +136,8 @@ CREATE TABLE `vehiculos` (
 INSERT INTO `vehiculos` (`IDvehiculo`, `DNI_cliente`, `tipo_vehiculo`, `modelo`, `marca`, `fecha_salida`) VALUES
 (1, 1, 'carro', '2006', 'toyota', '2016-09-07'),
 (2, 2, 'camioneta', '2007', 'chevrolet', '2018-09-04'),
-(5, 1, 'Carro', 'MX-5 2024', 'Mazda', '2023-09-29');
+(5, 1, 'Carro', 'MX-5 2024', 'Mazda', '2023-09-29'),
+(6, 0, 'Carro', 'XLF-300', 'Audi', '0000-00-00');
 
 --
 -- Índices para tablas volcadas
@@ -189,7 +198,7 @@ ALTER TABLE `siniestros`
 -- AUTO_INCREMENT de la tabla `vehiculos`
 --
 ALTER TABLE `vehiculos`
-  MODIFY `IDvehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IDvehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -220,3 +229,7 @@ ALTER TABLE `siniestros`
 ALTER TABLE `vehiculos`
   ADD CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`DNI_cliente`) REFERENCES `clientes` (`DNI_cliente`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
