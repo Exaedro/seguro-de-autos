@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2023 a las 18:38:57
+-- Tiempo de generación: 03-11-2023 a las 20:06:05
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,8 +42,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`DNI_cliente`, `nombre`, `apellido`, `telefono`, `correo_electronico`, `contraseña`, `rol`) VALUES
-(0, 'Julian', 'Grippaldi Exequiel', 1186742853, 'owomolo123@gmail.com', '29422196', 'admin'),
-(1, 'Maximiliano ', 'Soto de la Colina', 1185396024, 'maxi@gmail.com', 'maxixd', ''),
+(1, 'Maximiliano', 'Soto de la Colina', 1185396024, 'maxi@gmail.com', 'maxixd', ''),
 (2, 'Nahiara', 'Sassone', 1133445566, 'n@gmail.com', 'nanu797', '');
 
 -- --------------------------------------------------------
@@ -183,10 +182,22 @@ ALTER TABLE `vehiculos`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `DNI_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `polizas`
 --
 ALTER TABLE `polizas`
   MODIFY `IDpoliza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `reclamos`
+--
+ALTER TABLE `reclamos`
+  MODIFY `IDreclamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `siniestros`
@@ -222,12 +233,6 @@ ALTER TABLE `reclamos`
 --
 ALTER TABLE `siniestros`
   ADD CONSTRAINT `siniestros_ibfk_1` FOREIGN KEY (`IDpoliza`) REFERENCES `polizas` (`IDpoliza`);
-
---
--- Filtros para la tabla `vehiculos`
---
-ALTER TABLE `vehiculos`
-  ADD CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`DNI_cliente`) REFERENCES `clientes` (`DNI_cliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
