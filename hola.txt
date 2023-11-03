@@ -1,0 +1,4 @@
+Plasmar todo lo de la base de datos en la pagina
+Cambiar la tabla clientes por asesores
+Logo
+Que no diga document
