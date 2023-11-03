@@ -1,9 +1,13 @@
 <?php
-    if(!isset($_SESSION['usuario'])) return header('Location: ../iniciar_sesion.php');
+session_start();
+    if(!isset($_SESSION['usuario'])) {
+        header('Location: ../iniciar_sesion.php');
+        exit();
+    }
     
     $db = mysqli_connect('localhost', 'root', '', 'auto');
     
-    $query = "SELECT v.tipo_vehiculo, v.modelo, v.marca, c.apellido FROM vehiculos v JOIN clientes c ON v.DNI_cliente = c.DNI_cliente WHERE c.DNI_cliente = ". $_SESSION['usuario'] .";";
+    $query = "SELECT v.tipo_vehiculo, v.modelo, v.marca, c.apellido FROM vehiculos v JOIN clientes c ON v.DNI_cliente = c.DNI_cliente WHERE c.DNI_cliente = v.DNI_cliente;";
     $result = mysqli_query($db, $query);
 
     while($fila = mysqli_fetch_assoc($result)) {
