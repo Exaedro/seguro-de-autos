@@ -31,7 +31,8 @@
                 <?php
                 session_start();
                     if(isset($_SESSION['usuario'])) {
-                        echo '<a href="perfil.php" style="margin-left: 20px">Perfil</a></div>';
+                        echo '<a href="perfil.php" style="margin-left: 20px">Perfil</a>';
+                        echo '<a href="php/cerrar_sesion.php" style="position:absolute;right:280px;">Cerrar Sesion</a>';
                     } else {
                         echo '<a href="iniciar_sesion.php">Iniciar Sesion</a>';
                     }
